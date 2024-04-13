@@ -1,0 +1,132 @@
+MemDump Memory Analysis Keys🗝 
+
+Made By, Akish krishnan						03/04/2024
+
+
+1. extracting basic information about the memory dump image:
+   
+   vol.py -f MemoryDump_Lab5.raw imageinfo
+
+
+2. extracting command lines for a specific process ID:
+   
+   vol.py -f MemoryDump_Lab5.raw --profile=Win7SP1x64 cmdline 
+
+
+3. extracting environment variables containing 'RAR password':
+   
+   vol.py -f MemoryDump_Lab6.raw --profile=Win7SP1x64 envars | grep 'RAR password'
+
+
+4. extracting command lines for a specific process ID:
+   
+   vol.py -f MemoryDump_Lab6.raw --profile=Win7SP1x64 cmdline -p 3716
+
+
+5. dumping a file associated with a specific memory address:
+   
+   vol.py -f MemoryDump_Lab6.raw --profile=Win7SP1x64 dumpfiles -Q 0x000000005fcfc4b0 -D . -n
+
+
+6. extracting console history:
+   
+   vol.py -f MemoryDump_Lab1.raw --profile Win7SP1x64 consoles
+
+
+7. extracting command lines for multiple process IDs:
+   
+   vol.py -f MemoryDump_Lab1.raw --profile Win7SP1x64 cmdline -p 1512,1984,2424
+
+
+8. extracting command lines for a specific process ID:
+    
+   vol.py -f MemoryDump_Lab2.raw --profile=Win7SP1x64 cmdline -p 3008
+
+
+9. dumping a file associated with a specific memory address:
+   
+   vol.py -f MemoryDump_Lab2.raw --profile=Win7SP1x64 dumpfiles -Q 0x000000003fb112a0 -D .
+
+10. scanning for command prompts:
+    
+    vol.py -f MemoryDump_Lab2.raw --profile=Win7SP1x64 cmdscan
+
+
+11. extracting environment variables for a specific process ID:
+    
+    vol.py -f MemoryDump_Lab2.raw --profile=Win7SP1x64 envars -p 2068
+
+
+12. performing file scan and saving the output to filescan.txt:
+    
+    vol.py -f MemoryDump_Lab3.raw --profile=Win7SP1x86_23418 filescan > filescan.txt
+
+
+13. dumping a file associated with a specific memory address:
+    
+    vol.py -f MemoryDump_Lab3.raw --profile=Win7SP1x86_23418 dumpfiles -Q 0x000000003de1b5f0 -D . -n
+
+
+14. dumping a file associated with a specific memory address:
+    
+    vol.py -f MemoryDump_Lab3.raw --profile=Win7SP1x86_23418 dumpfiles -Q 0x0000000004f34148 -D . -n
+
+
+15. performing file scan and saving the output to filescan.txt:
+    
+    vol.py -f MemoryDump_Lab4.raw --profile=Win7SP1x64 filescan > filescan.txt
+
+
+16. dumping a file associated with a specific memory address:
+    
+    vol.py -f MemoryDump_Lab4.raw --profile=Win7SP1x64 dumpfiles -Q 0x000000003fc398d0 -D . -n
+
+
+17. dumping a file associated with a specific memory address:
+    
+    vol.py -f MemoryDump_Lab5.raw --profile=Win7SP1x64 dumpfiles -Q 0x000000003eed56f0 -D . -n
+
+
+18. extracting screenshots from a memory dump image:
+    
+    vol.py -f MemoryDump_Lab5.raw --profile=Win7SP1x64 screenshot -D screenshot-output/
+
+
+19. searching for files named 'evilscript.py' or 'vip.txt':
+    
+    grep -E '\\Desktop\\evilscript.py|\\Desktop\\vip.txt' filescan.txt
+
+
+20. searching for file paths containing 'flag.rar':
+   
+    grep 'Users\\Jaffa\\Desktop\\pr0t3ct3d\\flag.rar' filescan.txt
+
+
+21. searching for files with the name 'SW1wb3J0YW50.rar' in filescan output:
+    
+     grep -E 'SW1wb3J0YW50.rar$' filescan.txt
+
+
+22. searching for the keyword 'password' in filescan output:
+     
+    grep -i 'password' filescan.txt
+
+
+23. searching for file paths containing 'Users\\':
+    
+    grep '\\Users\\' filescan.txt
+
+
+24. searching for file paths containing 'SmartNet\Secrets\Hidden.kdbx':
+    
+    grep '\\Users\\SmartNet\\Secrets\\Hidden.kdbx' filescan.txt
+
+
+25. searching for file paths containing '.jpg' or '.jpeg' in filescan output:
+    
+    grep -E '.jpg$|.jpeg$' filescan.txt | head
+   
+
+	These commands cover various aspects of memory analysis, including extracting specific information from memory dumps, searching for files and file paths, analyzing processes and environment variables, and extracting screenshots.
+
+ If you need further assistance or have any questions, feel free to ask! @ akishkrishnan88@gmail.com
